@@ -20,10 +20,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
         let client = TWTRAPIClient()
         
         //barry o
-        client.loadTweet(withID: "844896595179180034") { (tweet, error) in
+        client.loadTweet(withID: "870695481290117120") { (tweet, error) in
             if let t = tweet {
                 print("success")
                 self.obamaTweet.configure(with: t)
@@ -41,6 +42,48 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print("Failed to load Tweet: \(error.localizedDescription)")
             }
         }
+        
+        //API test - barack
+        
+        let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+        var clientError : NSError?
+        
+        let barackParams = ["screen_name": "barackobama", "count" : "8"]
+        let barackRequest = client.urlRequest(withMethod: "GET", url: statusesShowEndpoint, parameters: barackParams, error: &clientError)
+        
+        client.sendTwitterRequest(barackRequest) { (response, data, connectionError) -> Void in
+            if connectionError != nil {
+                print("Error: \(String(describing: connectionError))")
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                print("json: \(json)")
+            } catch let jsonError as NSError {
+                print("json error: \(jsonError.localizedDescription)")
+            }
+        }
+        
+        //API test - trump
+        
+        
+        let trumpParams = ["screen_name": "realDonaldTrump", "count" : "8"]
+        let trumpRequest = client.urlRequest(withMethod: "GET", url: statusesShowEndpoint, parameters: trumpParams, error: &clientError)
+        
+        client.sendTwitterRequest(trumpRequest) { (response, data, connectionError) -> Void in
+            if connectionError != nil {
+                print("Error: \(String(describing: connectionError))")
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                print("json: \(json)")
+            } catch let jsonError as NSError {
+                print("json error: \(jsonError.localizedDescription)")
+            }
+        }
+        
+        
         
         tweetNumberSelector.delegate = self
         tweetNumberSelector.dataSource = self
