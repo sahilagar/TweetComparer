@@ -8,6 +8,7 @@
 
 import UIKit
 import TwitterKit
+import SwiftyJSON
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var tweetNumberSelector: UIPickerView!
@@ -61,12 +62,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if connectionError != nil {
                 print("Error: \(String(describing: connectionError))")
             }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print("json: \(json)")
-            } catch let jsonError as NSError {
-                print("json error: \(jsonError.localizedDescription)")
+        
+            //parse JSON to get tweets
+            let barackData = JSON(data: data!)
+            for i in 0...7{
+                let currentTweet = barackData[i]
+                let tweetContent = currentTweet["text"]
+                print("Obama Tweet # \(i):\(tweetContent)")
             }
         }
         
@@ -81,15 +83,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print("Error: \(String(describing: connectionError))")
             }
             
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print("json: \(json)")
-            } catch let jsonError as NSError {
-                print("json error: \(jsonError.localizedDescription)")
+            //parse JSON to get tweets
+
+            let trumpData = JSON(data: data!)
+            for i in 0...7{
+                let currentTweet = trumpData[i]
+                let tweetContent = currentTweet["text"]
+                print("Trump Tweet # \(i): \(tweetContent)")
             }
+            
         }
-        
-        
         
         tweetNumberSelector.delegate = self
         tweetNumberSelector.dataSource = self

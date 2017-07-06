@@ -7,4 +7,5 @@ target 'Tweet Comparison' do
 
   # Pods for Tweet Comparison
   pod ‘TwitterKit’
+  pod 'SwiftyJSON'
 end
