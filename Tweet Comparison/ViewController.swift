@@ -16,6 +16,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var nums = ["1", "2", "3", "4", "5", "6", "7", "8"]
     //populate nums
+    
+    //
+    var obamasTweets = ["844896595179180034",
+                        "877974755592228868",
+                        "822550300942856193",
+                        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +70,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //code once the tweet# is selected
+        //row is 0 indexed
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
