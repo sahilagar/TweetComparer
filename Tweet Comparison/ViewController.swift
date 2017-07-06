@@ -18,37 +18,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var nums = ["1", "2", "3", "4", "5", "6", "7", "8"]
     //populate nums
     
-    //
-    var obamasTweets = ["844896595179180034",
-                        "877974755592228868",
-                        "822550300942856193",
-                        ]
+    private var rowIndex = 0
+    
+    var obamaTweetIDArray:[String] = []
+    var trumpTweetIDArray:[String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-       
         let client = TWTRAPIClient()
-        
-        //barry o
-        client.loadTweet(withID: "870695481290117120") { (tweet, error) in
-            if let t = tweet {
-                print("success")
-                self.obamaTweet.configure(with: t)
-            } else if let error = error {
-                print("Failed to load Tweet: \(error.localizedDescription)")
-            }
-        }
-        //trump
-        client.loadTweet(withID: "882558219285131265") { (tweet, error) in
-            if let t = tweet {
-                print("success")
-                self.trumpTweet.configure(with: t)
-                print(t.author.name)
-            } else if let error = error {
-                print("Failed to load Tweet: \(error.localizedDescription)")
-            }
-        }
         
         //API test - barack
         
@@ -67,8 +45,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let barackData = JSON(data: data!)
             for i in 0...7{
                 let currentTweet = barackData[i]
-                let tweetContent = currentTweet["text"]
-                print("Obama Tweet # \(i):\(tweetContent)")
+                let tweetID = currentTweet["id"].stringValue
+                self.obamaTweetIDArray.append(tweetID)
+                print(self.obamaTweetIDArray.count)
+                print(tweetID)
             }
         }
         
@@ -88,11 +68,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let trumpData = JSON(data: data!)
             for i in 0...7{
                 let currentTweet = trumpData[i]
-                let tweetContent = currentTweet["text"]
-                print("Trump Tweet # \(i): \(tweetContent)")
+                let tweetID = currentTweet["id"].stringValue
+                self.trumpTweetIDArray.append(tweetID)
             }
             
         }
+        
+        print("amount of tweets in obamas array \(obamaTweetIDArray.count)")
+
         
         tweetNumberSelector.delegate = self
         tweetNumberSelector.dataSource = self
@@ -117,13 +100,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //code once the tweet# is selected
         //row is 0 indexed
+        rowIndex = row
+        
+        let client = TWTRAPIClient()
+        
+        //loads the tweets in the array
+        //barry o
+        client.loadTweet(withID: obamaTweetIDArray[rowIndex]) { (tweet, error) in
+            if let t = tweet {
+                print("success")
+                self.obamaTweet.configure(with: t)
+            } else if let error = error {
+                print("Failed to load Tweet: \(error.localizedDescription)")
+            }
+        }
+        //trump
+        client.loadTweet(withID: trumpTweetIDArray[rowIndex] ) { (tweet, error) in
+            if let t = tweet {
+                print("success")
+                self.trumpTweet.configure(with: t)
+                print(t.author.name)
+            } else if let error = error {
+                print("Failed to load Tweet: \(error.localizedDescription)")
+            }
+        }
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return nums[row]
     }
-
 
 }
 
