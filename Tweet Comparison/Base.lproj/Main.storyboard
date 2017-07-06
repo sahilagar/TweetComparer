@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tweet_Comparison" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,73 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-1O-tPw" customClass="TWTRTweetView" colorLabel="IBBuiltInLabel-Red">
+                                <rect key="frame" x="16" y="119" width="343" height="240"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.80003470180000003" green="0.80001723769999999" blue="0.80002075429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-ga-5Vq">
+                                <rect key="frame" x="16" y="29" width="162" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="0BM-uW-wB9"/>
+                                    <constraint firstAttribute="width" constant="162" id="p6M-sp-3fH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2J-A5-1GJ">
+                                <rect key="frame" x="85" y="0.0" width="205" height="99"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barry O:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVQ-bL-GQU">
+                                <rect key="frame" x="16" y="90" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trump:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E5-V0-RTs">
+                                <rect key="frame" x="16" y="367" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udm-8j-oYN" customClass="TWTRTweetView">
+                                <rect key="frame" x="16" y="407" width="343" height="240"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HVQ-bL-GQU" firstAttribute="leading" secondItem="Rll-1O-tPw" secondAttribute="leading" id="7F4-jw-PSt"/>
+                            <constraint firstItem="T1d-ga-5Vq" firstAttribute="leading" secondItem="HVQ-bL-GQU" secondAttribute="leading" id="7Tb-WK-sjb"/>
+                            <constraint firstAttribute="bottom" secondItem="udm-8j-oYN" secondAttribute="bottom" constant="20" symbolic="YES" id="8y7-Q1-mKL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c2J-A5-1GJ" secondAttribute="trailing" constant="69" id="EeF-NQ-6yW"/>
+                            <constraint firstItem="HVQ-bL-GQU" firstAttribute="top" secondItem="T1d-ga-5Vq" secondAttribute="bottom" constant="20" id="G1R-ul-sSZ"/>
+                            <constraint firstItem="udm-8j-oYN" firstAttribute="top" secondItem="6E5-V0-RTs" secondAttribute="bottom" constant="19" id="GPo-Cy-GsU"/>
+                            <constraint firstItem="6E5-V0-RTs" firstAttribute="leading" secondItem="udm-8j-oYN" secondAttribute="leading" id="H5E-Ph-Uyb"/>
+                            <constraint firstItem="c2J-A5-1GJ" firstAttribute="centerX" secondItem="Rll-1O-tPw" secondAttribute="centerX" id="Phm-D2-sAB"/>
+                            <constraint firstItem="Rll-1O-tPw" firstAttribute="top" secondItem="HVQ-bL-GQU" secondAttribute="bottom" constant="8" symbolic="YES" id="RxO-tM-Tds"/>
+                            <constraint firstItem="T1d-ga-5Vq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YaH-aE-DIv"/>
+                            <constraint firstItem="6E5-V0-RTs" firstAttribute="top" secondItem="Rll-1O-tPw" secondAttribute="bottom" constant="8" symbolic="YES" id="bxA-Gw-3gK"/>
+                            <constraint firstItem="Rll-1O-tPw" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="fB7-0e-aAh"/>
+                            <constraint firstItem="Rll-1O-tPw" firstAttribute="trailing" secondItem="udm-8j-oYN" secondAttribute="trailing" id="fdG-4B-EVl"/>
+                            <constraint firstItem="T1d-ga-5Vq" firstAttribute="centerY" secondItem="c2J-A5-1GJ" secondAttribute="centerY" id="rT2-jv-2t0"/>
+                            <constraint firstItem="Rll-1O-tPw" firstAttribute="leading" secondItem="6E5-V0-RTs" secondAttribute="leading" id="tFH-0t-bWk"/>
+                            <constraint firstItem="udm-8j-oYN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="407" id="u93-og-BeI"/>
+                            <constraint firstItem="T1d-ga-5Vq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="vl9-78-Vml"/>
+                            <constraint firstItem="c2J-A5-1GJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wxg-LL-cqR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="obamaTweet" destination="Rll-1O-tPw" id="ds8-Bi-edj"/>
+                        <outlet property="trumpTweet" destination="udm-8j-oYN" id="KEU-AV-jPk"/>
+                        <outlet property="tweetNumberSelector" destination="c2J-A5-1GJ" id="kez-OQ-ZJ3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

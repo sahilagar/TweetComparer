@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //Firebase.config()
+        
+        Twitter.sharedInstance().start(withConsumerKey:"0bhIHafz3sXWFqAE0ImfGtwRR", consumerSecret:"wtDLvPRyw2nne7379HWqNo7yLxN5GvtT03QKjfC7lAq10aFnHI")
+        
         return true
     }
 

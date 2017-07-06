@@ -12,6 +12,7 @@
 		6D1993EB1F0D60D40079BC5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D1993E91F0D60D40079BC5B /* Main.storyboard */; };
 		6D1993ED1F0D60D40079BC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D1993EC1F0D60D40079BC5B /* Assets.xcassets */; };
 		6D1993F01F0D60D40079BC5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D1993EE1F0D60D40079BC5B /* LaunchScreen.storyboard */; };
+		BB786D9B78EC74B9394291D8 /* Pods_Tweet_Comparison.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7C24EE825016ECCA372C4E /* Pods_Tweet_Comparison.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		6D1993EC1F0D60D40079BC5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D1993EF1F0D60D40079BC5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D1993F11F0D60D40079BC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1FE7DC2D0D8C8889DE85BD1 /* Pods-Tweet Comparison.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Comparison.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Comparison/Pods-Tweet Comparison.release.xcconfig"; sourceTree = "<group>"; };
+		CF7C24EE825016ECCA372C4E /* Pods_Tweet_Comparison.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_Comparison.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD68B549BC3B766EC89103D4 /* Pods-Tweet Comparison.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Comparison.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Comparison/Pods-Tweet Comparison.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB786D9B78EC74B9394291D8 /* Pods_Tweet_Comparison.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A87C7A5C4DADC8EE2A5AEAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF7C24EE825016ECCA372C4E /* Pods_Tweet_Comparison.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D1993D91F0D60D40079BC5B = {
 			isa = PBXGroup;
 			children = (
 				6D1993E41F0D60D40079BC5B /* Tweet Comparison */,
 				6D1993E31F0D60D40079BC5B /* Products */,
+				AD55A4F9A1755CBCFC86C2C3 /* Pods */,
+				2A87C7A5C4DADC8EE2A5AEAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = "Tweet Comparison";
 			sourceTree = "<group>";
 		};
+		AD55A4F9A1755CBCFC86C2C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD68B549BC3B766EC89103D4 /* Pods-Tweet Comparison.debug.xcconfig */,
+				B1FE7DC2D0D8C8889DE85BD1 /* Pods-Tweet Comparison.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D1993F41F0D60D40079BC5B /* Build configuration list for PBXNativeTarget "Tweet Comparison" */;
 			buildPhases = (
+				C12F27F0F01C72116DC70DFC /* [CP] Check Pods Manifest.lock */,
 				6D1993DE1F0D60D40079BC5B /* Sources */,
 				6D1993DF1F0D60D40079BC5B /* Frameworks */,
 				6D1993E01F0D60D40079BC5B /* Resources */,
+				090628A2DC1DC36F0E48F622 /* [CP] Embed Pods Frameworks */,
+				BA11010F0CFA8B702CFCB407 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		090628A2DC1DC36F0E48F622 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tweet Comparison/Pods-Tweet Comparison-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA11010F0CFA8B702CFCB407 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tweet Comparison/Pods-Tweet Comparison-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C12F27F0F01C72116DC70DFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6D1993DE1F0D60D40079BC5B /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		6D1993F51F0D60D40079BC5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD68B549BC3B766EC89103D4 /* Pods-Tweet Comparison.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K25PX326F4;
@@ -272,6 +348,7 @@
 		};
 		6D1993F61F0D60D40079BC5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FE7DC2D0D8C8889DE85BD1 /* Pods-Tweet Comparison.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K25PX326F4;
